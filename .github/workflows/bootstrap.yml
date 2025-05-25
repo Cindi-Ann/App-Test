@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./s3-setup
+        working-directory: ./terraform/bootstrap-setup
 
     steps:
       - name: Checkout
