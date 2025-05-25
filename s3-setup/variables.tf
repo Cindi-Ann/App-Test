@@ -13,7 +13,7 @@ variable "bucket_name" {
 variable "github_repository" {
   description = "GitHub repo that can assume the role (format: owner/repo)"
   type        = string
-  default     = ""
+  default     = "Cindi-Ann/App-Test"
 }
 
 variable "github_actions_role_name" {
