@@ -6,7 +6,7 @@ on:
       bucket-name:
         description: S3 bucket name
         required: true
-        default: 'my-tf-bucket'
+        default: 'my-tf-bucket-cindi-test'
         type: string
 
 jobs:
