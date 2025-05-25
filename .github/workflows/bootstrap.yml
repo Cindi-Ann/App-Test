@@ -29,11 +29,3 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve -var-file=terraform.tfvars
-
-      - name: Capture Terraform Output
-        id: tf_output
-        run: |
-          echo "bucket_name=$(terraform output -raw S3BucketName)" >> $GITHUB_OUTPUT
-
-      - name: Use Output
-        run: echo "Bucket name is ${{ steps.tf_output.outputs.bucket_name }}"
