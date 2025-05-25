@@ -1,0 +1,6 @@
+aws_region      = "us-west-2"
+bucket_name     = "my-terraform-state"
+github_repository = "your-org/your-repo"
+github_actions_role_name      = "github-actions-terraform"
+terraform_policy_name         = "terraform-state-policy"
+infrastructure_policy_name    = "infrastructure-policy"
