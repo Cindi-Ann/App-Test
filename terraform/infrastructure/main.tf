@@ -9,7 +9,7 @@ terraform {
 
   //get from bootstrap
     backend "s3" {
-    bucket = "${var.bucket_name}"
+    bucket = "terraform-state-app-test-cindi"
     key    = "terraform.tfstate"
     region = "eu-west-1"
     encrypt = true
