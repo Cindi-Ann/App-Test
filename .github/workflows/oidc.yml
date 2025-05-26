@@ -35,3 +35,6 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
+
+      - name: Output DB Password
+        run: terraform output db_password
