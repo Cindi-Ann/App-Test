@@ -19,13 +19,3 @@ terraform {
 provider "aws" {
   region = var.aws_region
 }
-
-data "aws_ssm_parameter" "db_password" {
-  name = "/db_config/db_password"
-}
-
-output "db_password" {
-  description = "Database password :("
-  value     = data.aws_ssm_parameter.db_password.value
-  sensitive = true
-}

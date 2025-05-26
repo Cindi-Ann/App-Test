@@ -36,8 +36,8 @@ jobs:
       - name: Terraform Apply
         run: terraform apply -auto-approve
 
-      - name: Export DB password
-        run: |
-          DB_PASSWORD=$(terraform output -raw db_password)
-          echo "DB_PASSWORD=$DB_PASSWORD"
+      # - name: Export DB password
+      #   run: |
+      #     DB_PASSWORD=$(terraform output -raw db_password)
+      #     echo "DB_PASSWORD=$DB_PASSWORD"
 
