@@ -30,7 +30,7 @@ variable "subnet_availability_zone_b" {
 
 variable "db_name" {
     type = string
-    default = "cindi-test-db"
+    default = "cinditestdb"
 }
 
 variable "db_username" {
