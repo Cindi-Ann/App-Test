@@ -21,7 +21,7 @@ provider "aws" {
 }
 
 data "aws_ssm_parameter" "db_password" {
-  name = "/db_config/db_password"
+  name = "/db_config/db_username"
 }
 
 output "db_password" {
