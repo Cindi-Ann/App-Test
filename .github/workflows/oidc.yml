@@ -36,8 +36,8 @@ jobs:
       - name: Terraform Apply
         run: terraform apply -auto-approve
 
-      - name: Output DB Password (Unsafe)
+      - name: Export DB password
         run: |
-          DB_PASSWORD=$(terraform output -json db_password | jq -r '.value')
-          echo "DB_PASSWORD=$DB_PASSWORD"
+          DB_PASSWORD=$(terraform output -raw db_password)
+          echo "DB_PASSWORD=$DB_PASSWORD" >> $GITHUB_ENV
 
