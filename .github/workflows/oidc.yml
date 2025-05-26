@@ -39,5 +39,5 @@ jobs:
       - name: Export DB password
         run: |
           DB_PASSWORD=$(terraform output -raw db_password)
-          echo "DB_PASSWORD=$DB_PASSWORD" >> $GITHUB_ENV
+          echo "DB_PASSWORD=$DB_PASSWORD"
 
