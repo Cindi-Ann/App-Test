@@ -7,4 +7,5 @@ variable "aws_region" {
 variable "bucket_name" {
   description = "Base name for the S3 bucket that stores state"
   type        = string
+  default = "terraform-state-app-test-cindi"
 }

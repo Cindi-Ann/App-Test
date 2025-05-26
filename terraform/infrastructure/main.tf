@@ -8,12 +8,12 @@ terraform {
   }
 
   //get from bootstrap
-#   backend "s3" {
-#     bucket = "mybucket-abc12345"  # hardcoded after bootstrap
-#     key    = "terraform.tfstate"
-#     region = "us-east-1"
-#     encrypt = true
-#   }
+    backend "s3" {
+    bucket = "${var.bucket_name}"
+    key    = "terraform.tfstate"
+    region = "eu-west-1"
+    encrypt = true
+  }
 }
 
 provider "aws" {
