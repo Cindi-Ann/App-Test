@@ -12,16 +12,9 @@ provider "aws" {
   region = var.aws_region
 }
 
-# Generate a random suffix for bucket name to ensure uniqueness
-resource "random_string" "bucket_suffix" {
-  length  = 8
-  special = false
-  upper   = false
-}
-
 # S3 bucket for Terraform state
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "${var.bucket_name}-${random_string.bucket_suffix.result}"
+  bucket = "${var.bucket_name}"
 
   tags = {
     Name        = "Terraform State Bucket"
@@ -78,7 +71,7 @@ resource "aws_iam_openid_connect_provider" "github_actions" {
 
 # IAM role for GitHub Actions
 resource "aws_iam_role" "github_actions" {
-  name = "${var.github_actions_role_name}-${random_string.bucket_suffix.result}"
+  name = "${var.github_actions_role_name}"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -108,7 +101,7 @@ resource "aws_iam_role" "github_actions" {
 
 # IAM policy for Terraform state management
 resource "aws_iam_policy" "terraform_state_policy" {
-  name        = "${var.terraform_policy_name}-${random_string.bucket_suffix.result}"
+  name        = "${var.terraform_policy_name}"
   description = "Policy for GitHub Actions to manage Terraform state"
 
   policy = jsonencode({
@@ -133,7 +126,7 @@ resource "aws_iam_policy" "terraform_state_policy" {
 
 # IAM policy for infrastructure resources
 resource "aws_iam_policy" "infrastructure_policy" {
-  name        = "${var.infrastructure_policy_name}-${random_string.bucket_suffix.result}"
+  name        = "${var.infrastructure_policy_name}"
   description = "Policy for GitHub Actions to manage infrastructure"
 
   policy = jsonencode({
@@ -146,6 +139,8 @@ resource "aws_iam_policy" "infrastructure_policy" {
           "ec2:*",
           # RDS full access
           "rds:*",
+          # SSM full access
+           "ssm:*",
         ]
         Resource = "*"
       }
