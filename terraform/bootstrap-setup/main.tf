@@ -139,6 +139,7 @@ resource "aws_iam_policy" "infrastructure_policy" {
           "ec2:*",
           # RDS full access
           "rds:*",
+          "iam:CreateServiceLinkedRole",
           # SSM full access
            "ssm:*",
         ]
