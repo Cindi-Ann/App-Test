@@ -27,4 +27,5 @@ data "aws_ssm_parameter" "db_password" {
 output "db_password" {
   description = "Database password :("
   value     = data.aws_ssm_parameter.db_password.value
+  sensitive = true
 }
