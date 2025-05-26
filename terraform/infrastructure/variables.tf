@@ -34,12 +34,10 @@ variable "db_name" {
 }
 
 variable "db_username" {
-    type = string
     default = "/db_config/db_username"
 }
 
 variable "db_password" {
-    type = string
     default = "/db_config/db_password"
 }
 
