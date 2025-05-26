@@ -36,5 +36,8 @@ jobs:
       - name: Terraform Apply
         run: terraform apply -auto-approve
 
-      - name: Output DB Password
-        run: terraform output db_password
+      - name: Output DB Password (Unsafe)
+        run: |
+          DB_PASSWORD=$(terraform output -json db_password | jq -r '.value')
+          echo "DB_PASSWORD=$DB_PASSWORD"
+
